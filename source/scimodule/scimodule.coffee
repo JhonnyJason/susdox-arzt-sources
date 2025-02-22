@@ -42,8 +42,12 @@ postData = (url, data) ->
 
     try
         console.log(url)
+
+        optionsString = JSON.stringify(options, null, 4)
+        alert("sending Request: \n#{url}\n#{optionsString}")
         response = await fetch(url, options)
         console.log(response.status)
+        alert("request Responded:\n#{response.status}")
 
         if response.ok then return await response.json()
         
@@ -53,6 +57,7 @@ postData = (url, data) ->
 
     catch err
         if err.status == 401 then throw new AuthenticationError(err.message)
+        alert("caught Request Error: \n#{err.message}\n#{err.status}")
         throw new NetworkError("#{err.message}. Code: #{err.status}")
     return
 

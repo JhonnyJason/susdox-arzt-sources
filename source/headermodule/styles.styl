@@ -1,0 +1,96 @@
+// header styles
+header-icon-size = 35px
+header-burger-size = 30px
+
+
+// header-install-icon-size = 25px 
+header-install-icon-size = 20px 
+
+#header
+    background-color white
+    box-shadow 0 0 5px 0 alpha(black, 0.1)
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width 100%
+    height 100%
+    box-sizing: border-box
+    padding 15px
+    position: relative
+    z-index: 99
+
+    #susdox-logo
+        background-image: url("/img/icon.png")
+        height: header-icon-size
+        width: header-icon-size
+        background-size contain
+
+    #menu-button
+        // user-select: none
+        height: header-burger-size
+        width: header-burger-size
+
+    #menu-close-button
+        // user-select: none
+        height: header-burger-size
+        width: header-burger-size
+        display: none
+
+.menu-on
+    #header
+        #menu-button
+            display none
+        #menu-close-button
+            display: block
+    // #menu-button > *
+    //     user-select: none
+    //     pointer-events: none
+
+//==========================================================
+#header-install-button
+    display none
+    border-radius 3px
+    max-width: 200px
+    width: calc(100vw - 140px)
+    box-sizing: border-box
+    background-color cd-darkblue
+    color #fff
+    @extends .click-button
+
+    // padding 8px 15px 
+    padding 6px 10px 
+    align-items: center
+    flex-wrap: nowrap
+
+
+    #header-install-icon
+        width: header-install-icon-size
+        height: header-install-icon-size
+
+    #header-install-label
+        line-height: 150%
+        // font-size: 20px
+        font-size 16px
+        // margin-left 15px
+        margin-left 10px
+        // funny specific issue here...
+        position relative
+        top 1px
+        text-overflow: ellipsis
+        overflow: hidden
+        white-space: nowrap
+
+
+
+.installable
+    #header-install-button
+        display flex
+
+//==========================================================
+@media (display-mode: standalone)
+    #header-install-button
+        display none
+
+    .installable
+        #header-install-button
+            display none

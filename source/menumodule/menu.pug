@@ -1,0 +1,43 @@
+//- menu structure
+.hidden-templates
+    #menu-entry-template
+        a.menu-entry(user-index="{{{index}}}")
+            .menu-icon: svg: use(href="#svg-user-icon")
+            .menu-label {{{userLabel}}}
+    #unnamed-text-element=content.unnamedText
+    
+nav#menu.no-user
+    .menu-group 
+        a.menu-entry#menu-add-account
+            .menu-icon: svg: use(href="#svg-login-icon")
+            .menu-label=content.menuLoginLabel
+    .menu-group 
+        //- a.menu-entry#menu-show-qr
+        //-     .menu-icon: svg: use(href="#svg-qr-icon")
+        //-     .menu-label=content.menuShowQRLabel
+        //- a.menu-entry#menu-hide-qr
+        //-     .menu-icon: svg: use(href="#svg-qr-icon")
+        //-     .menu-label=content.menuHideQRLabel
+
+        a.menu-entry#menu-more-info(target="_blank" href="https://pwa.bilder-befunde.at/info")
+            .menu-icon: svg: use(href="#svg-info-icon")
+            .menu-label=content.menuMoreInfoLabel
+        a.menu-entry#menu-logout
+            .menu-icon: svg: use(href="#svg-logout-icon")
+            .menu-label=content.menuLogoutLabel
+    //- .menu-group 
+    .menu-group 
+        a#menu-version.menu-entry
+            #up-to-date-icon.menu-icon: svg: use(href="#svg-check-mark-icon")
+            #to-update-icon.menu-icon: svg: use(href="#svg-update-icon")
+            #current-version.menu-label v0.1.x
+            //- #to-version-icon.menu-icon: svg: use(href="#svg-chevron-right-icon")
+            #to-version-icon.menu-icon: svg: use(href="#svg-arrow-right-icon")
+            #new-version.menu-label v0.1.y
+    //- .menu-group
+#menu-bottom-group
+    a#menu-pwa-install-button
+        .top 
+            #pwa-install-icon: svg: use(href="#svg-phone-download-icon")
+            #pwa-install-label=content.menuPWAInstallLabel
+        #pwa-install-subtext=content.menuPWAInstallSubtext

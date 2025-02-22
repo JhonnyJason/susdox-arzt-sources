@@ -1,0 +1,14 @@
+include ../preloadermodule/preloader-mixins.pug
+
+//- content structure
+#content.preload
+    #menu-frame: include ../menumodule/menu.pug
+    #center-preloader: +preloader("", "squares")
+    #table-frame: include ../overviewtablemodule/overviewtable.pug
+
+
+    .empty-space
+    #cube-area: include ../cubemodule/cube.pug
+    #button-area: include ../mainbuttonmodule/mainbutton.pug
+    #link-area
+        include ../centerlinkmodule/centerlink.pug

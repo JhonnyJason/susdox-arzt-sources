@@ -1,0 +1,182 @@
+menu-icon-size = 25px
+
+#menu
+    width 260px
+    height 100%
+    overflow-y: auto
+    box-sizing: border-box   
+    padding 5px 15px
+    padding-bottom 150px
+    position absolute
+    top 0
+    right 0
+    background-color white
+    transition transform 0.3s
+    transform translateX(102%)
+
+    .menu-group
+        padding 10px 0
+    .menu-entry
+        padding 8px 15px 
+        display flex
+        align-items: center
+        @extends .click-button
+    .menu-entry:hover
+        background-color alpha(cd-darkblue, 0.2)
+    .menu-entry.active-user
+        background-color cd-turquoise
+        color white
+        
+    .menu-icon
+        width: menu-icon-size
+        height: menu-icon-size
+
+    .menu-label
+        line-height: 150%
+        font-size: 20px
+        margin-left 15px
+        // funny specific issue here...
+        position relative
+        top 1px
+
+
+//==========================================================
+#menu-add-account
+    pointer-events: none
+    opacity 0.6
+
+#all-users
+    border-top solid 1px alpha(cd-darkblue, 0.1)
+    border-bottom solid 1px alpha(cd-darkblue, 0.1)
+
+
+.no-user
+    #menu-add-account
+        pointer-events: all
+        opacity 1
+
+    #all-users
+        border-bottom none
+        padding 0
+
+    // #menu-show-qr
+    //     pointer-events: none
+    //     opacity 0.6
+
+    #menu-logout
+        pointer-events: none
+        opacity 0.6
+
+//==========================================================
+#menu 
+    #menu-hide-qr.menu-entry
+        display none
+
+// .show-qr 
+//     #menu-show-qr
+//         display none
+//     #menu 
+//         #menu-hide-qr.menu-entry
+//             display flex
+    
+//==========================================================
+#menu-version
+    color cd-darkblue
+    opacity 0.6
+    pointer-events: none
+    #to-update-icon
+        display none
+    #up-to-date-icon
+        display: block
+    #to-version-icon
+        width menu-icon-size * 0.7
+        height menu-icon-size * 0.7
+        margin 0 5px
+        display: none
+    #new-version
+        display: none
+
+#menu-version.to-update
+    color white
+    opacity 1
+    pointer-events: all
+    background-color alpha(#ff8e1a, 0.9)
+    border-radius 3px
+
+    #to-update-icon
+        display block
+    #up-to-date-icon
+        display: none
+    #to-version-icon
+        display: block
+    #new-version
+        margin-left: 0
+        display: block
+
+
+//==========================================================
+#menu-bottom-group
+    width 240px
+    position absolute
+    bottom 20px
+    padding 0 10px
+    right 0
+    transition transform 0.3s
+    transform translateX(102%)
+
+//==========================================================
+#menu-pwa-install-button:hover
+    background-color alpha(cd-darkblue, 0.6)
+
+#menu-pwa-install-button
+    border-radius 3px
+    display none
+    background-color cd-darkblue
+    color #fff
+    @extends .click-button
+
+    .top
+        padding 8px 15px 
+        display flex
+        align-items: center
+
+
+    #pwa-install-icon
+        width: menu-icon-size
+        height: menu-icon-size
+
+    #pwa-install-label
+        line-height: 150%
+        font-size: 20px
+        margin-left 15px
+        // funny specific issue here...
+        position relative
+        top 1px
+
+    #pwa-install-subtext
+        padding 0 20px 10px 20px
+        font-size: 12pt
+        color #e0e0e0
+.menu-on
+    #menu
+        transform translateX(0)
+    #menu-bottom-group
+        transform translateX(0)
+
+.installable
+    #menu-pwa-install-button
+        display block
+
+//==========================================================
+@media (display-mode: standalone)
+    #menu-pwa-install-button
+        display none
+
+    .installable
+        #menu-pwa-install-button
+            display none
+
+
+// @media all and (display-mode: standalone)
+//     #menu
+//         background-color: black

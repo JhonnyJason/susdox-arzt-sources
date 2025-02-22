@@ -1,0 +1,24 @@
+//- codeverification structure
+include ../preloadermodule/preloader-mixins.pug
+
+.hidden-templates
+    #invalid-token-error-feedback=content.invalidTokenErrorFeedback
+    #expired-token-error-feedback=content.expiredTokenErrorFeedback
+    #confirmation-error-feedback=content.confirmationInputErrorFeedback
+    #confirmation-preloader: +preloader("codeverification-preloader", "spinner-1")
+
+#codeverificationmodal.usermodal
+    //- .click-catcher
+    .modal-container
+        .modal-header 
+            h2.modal-header-title
+            .modal-close-button.click-button: svg: use(href="#svg-cross-icon")
+        .modal-content
+            label#codeverification-message(for="codeverification-birthday-input")=content.codeverificationMessage
+            input#codeverification-birthday-input(type="date")
+            #codeverification-user-feedback
+            button#codeverification-confirm-button.click-button=content.usercodeverificationButtonText
+        //- .modal-actions
+        //-     button#codeverification-confirm-button.click-button=content.usercodeverificationButtonText
+        //-     //- .modal-accept-button.click-button=content.usercodeverificationButtonText 
+        //-     //- .modal-cancel-button.click-button=content.modalCancelButtonText

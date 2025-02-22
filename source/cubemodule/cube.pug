@@ -1,0 +1,12 @@
+include ../preloadermodule/preloader-mixins.pug
+include ../requestcodeframemodule/requestcodeframe.pug
+
+#cube-frame 
+    #cube
+        #cube-front.side: #sustsol-cube-image
+        #cube-bottom.side: include ../credentialsframemodule/credentialsframe.pug
+        #cube-right.side 
+        #cube-left.side 
+        #cube-top.side 
+        #cube-back.side: +preloader("images-preloader", "squares")
+        

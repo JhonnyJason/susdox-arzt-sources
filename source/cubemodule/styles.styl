@@ -1,0 +1,139 @@
+// cube styles
+/*=========================================================
+Variables
+=========================================================*/
+// cube-size = 248px // must be divisible by 4
+// perspective = 800px
+// corrrectionScale = 0.845 // 1 - (size / 2 * persp)
+
+
+// cube-size = 252px // must be divisible by 6
+// perspective = 750px
+// corrrectionScale = 0.832 // 1 - (size / 2 * persp)
+
+cube-size = 252px // must be divisible by 14
+perspective = 700px
+corrrectionScale = 0.82 // 1 - (size / 2 * persp)
+
+// cube-size = 250px // must be divisible by 2
+// perspective = 625px
+// corrrectionScale = 0.8 // 1 - (size / 2 * persp)
+
+
+
+/*=========================================================
+=========================================================*/
+#hidden-front-side
+    display none
+
+/*=========================================================*/
+.logging-in
+    #images-preloader
+        display block !important
+    #cube
+        transform scale(corrrectionScale) rotateX(180deg)
+
+.table
+    #cube
+        display none
+
+/*=========================================================
+ The Cube
+=========================================================*/
+#cube-frame
+    position: absolute
+    top 50%
+    left 50%
+    transform: translate(-50%, -50%)
+    width: cube-size;
+    height: cube-size;
+    perspective: perspective
+    filter drop-shadow(0 0 15px alpha(black, 0.2));
+    background: transparent
+
+#cube
+    position: absolute
+    width: inherit
+    height: inherit
+    // width: 210px
+    // height: 210px
+    transform-style: preserve-3d;
+    transform scale(corrrectionScale)
+    transition transform 0.6s
+    background transparent
+    
+    .side
+        width: inherit
+        height: inherit
+        position: absolute;
+        background-color white
+
+    #cube-front
+        transform: rotateY(0deg) translateZ(cube-size * 0.5)
+    #cube-back
+        transform: rotateX(180deg) translateZ(cube-size * 0.5)
+    #cube-right
+        transform: rotateY(90deg) translateZ(cube-size * 0.5)
+    #cube-left
+        transform: rotateY(-90deg) translateZ(cube-size * 0.5)
+    #cube-top
+        transform: rotateX(90deg) translateZ(cube-size * 0.5)
+    #cube-bottom
+        transform: rotateX(-90deg) translateZ(cube-size * 0.5)
+
+    #sustsol-cube-image
+        background-image: url("/img/sustsol_logo.png")
+        background-size: contain
+        background-repeat no-repeat
+        background-position center
+        width: 90%
+        height 90%
+        position relative
+        top 5%
+        left 5%
+
+    #images-preloader
+        display none
+        height: 60px
+        width 60px
+        color cd-turquoise
+        position: absolute
+        top 50%
+        left 50%
+        transform translate(-50%, -50%) rotateZ(45deg)
+
+    #cube-right
+    #cube-front
+    #cube-left
+    #cube-back
+    #cube-top
+        img
+        canvas
+            width 90%
+            height 90%
+            object-fit: contain
+            position relative
+            top 5%
+            left 5%
+            // -webkit-touch-callout: none
+            // -webkit-user-select: none
+            // -khtml-user-select: none
+            // -moz-user-select: none    
+            // -ms-user-select: none      
+            // user-select: none
+
+    #cube-right
+    #cube-front
+    #cube-left
+        img
+        canvas
+            transform rotateZ(180deg)
+
+/*=========================================================*/
+.add-account
+    #cube
+        transform scale(corrrectionScale) rotateX(90deg)
+
+.request-code
+    #cube
+        transform scale(corrrectionScale) rotateX(180deg)

@@ -1,0 +1,90 @@
+// content styles
+/*===================================================================*/
+#center-preloader
+    display: none
+    height 60px
+    width 60px
+    position: absolute
+    top 50%
+    left 50%
+    transform: translate(-50%,-50%)
+    color cd-turquoise
+
+#content.preload
+    #center-preloader
+        display block
+        // display none
+    #cube-area
+    #link-area
+    #button-area
+        pointer-events: none
+        opacity: 0.5
+
+
+/*===================================================================*/
+#content
+    padding 5px 0
+    display grid
+    grid-template-columns: 1fr
+    // grid-template-rows: 60px minmax(260px, 42%) 50px minmax(110px, 40%)
+    grid-template-rows: 60px 260px minmax(110px, 25%) 50px
+    position relative
+    background-color transparent    
+    width 100vw
+    height 100%
+    box-sizing: border-box
+
+    #menu-frame
+        position: absolute
+        height: 100%
+        width 100%
+        background-color alpha(cd-darkblue, 0.4)
+        z-index -1
+        opacity: 0
+        transition opacity 0.3s
+
+    #table-frame
+        position absolute
+        height 100%
+        width 100%
+        z-index: -1
+        opacity 0
+        pointer-events: none
+        transition opacity 0.3s
+
+    #cube-area
+        position relative
+        width 100%
+        height 100%
+        overflow: visible
+
+    #link-area
+        position relative
+        width 100%
+        height 100%
+        overflow: hidden
+
+    #button-area
+        width 100%
+        height 100%
+        overflow: hidden
+
+.menu-on
+    #content
+        z-index: 9
+        pointer-events: all
+        #menu-frame
+            opacity 1
+            z-index 10
+.table
+    #content
+        #table-frame
+            z-index 9
+            opacity 1
+            pointer-events: all
+
+@media miniscreen
+    #content
+        grid-template-rows: 40px 220px minmax(110px, 35%) 50px
+    #usernamedisplay-container
+        padding 10px 20px 0 20px !important

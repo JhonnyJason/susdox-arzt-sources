@@ -1,20 +1,37 @@
 {
-    "name": "New Website",
-    "short_name": "N",
-    "icons": [
-        {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "start_url": "/",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+  "name": "SusDoX Arzt",
+  "short_name": "SusDoX Arzt",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "id": "SusDoX ArztPWA",
+  "scope": "/",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "display_override": [
+    "standalone",
+    "window-controls-overlay"
+  ],
+  "lang": "de",
+  "dir": "ltr",
+  "description": "Dies ist die neue SusDoX APP für Ärzte um den Login zu speichern und Untersuchungen einzusehen.",
+  "categories": [
+    "health",
+    "medical",
+    "personalization",
+    "security",
+    "utilities"
+  ]
 }

@@ -1,0 +1,64 @@
+// mainbutton styles
+#mainbutton-wrapper
+    position: relative
+    display flex
+    width 100%
+    height 100%
+    align-items: center
+    overflow hidden
+    
+#mainbutton-wrapper > *
+    position absolute
+    top 50%
+    left 50%
+    background-color: cd-turquoise
+    color white
+    border-radius: 10px
+    width 220px
+    box-sizing: border-box
+    padding 20px
+    font-size 15pt
+    text-align: center
+    transition all 0.3s
+
+
+#add-account-button  
+    transform translate(-50%, -50%)
+
+#accept-button
+    transform translate(-50%, 35vh)
+
+#accept-button.disabled
+    opacity 0.6
+    pointer-events: none
+
+#accept-button-request-text
+    display none
+
+
+.add-account
+    #add-account-button  
+        transform translate(-50%, -52vh)
+    #accept-button  
+        transform translate(-50%, -50%)
+
+.logging-in
+    #add-account-button  
+        opacity: 0.6
+        pointer-events: none
+
+.request-code
+    #accept-button-accept-text
+        display none
+    #accept-button-request-text
+        display inline
+
+    #add-account-button  
+        transform translate(-50%, -52vh)
+    #accept-button  
+        transform translate(-50%, -50%)
+
+.table
+    #add-account-button  
+    #accept-button  
+        display none

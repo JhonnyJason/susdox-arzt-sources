@@ -1,0 +1,110 @@
+// header styles
+.patient-table
+    #back-button
+    #patient-indication
+        opacity 1
+        transform translateX(0)
+        pointer-events: all
+    #search-button
+        opacity 1
+        pointer-events: all
+
+.patient-table.search
+    #cancel-search-button
+        opacity 1
+        pointer-events: all
+    #search-button
+        opacity 0
+        pointer-events: none
+
+.patient-table.go-back
+    #back-button
+        opacity 0
+        transform translateX(-200px)
+        pointer-events: none
+
+    #patient-indication
+        opacity 0
+        transform translateX(-100vw)
+        pointer-events: none
+
+
+#patient-indication
+    pointer-events: none
+    transition: all 0.3s
+    opacity: 0
+    transform: translateX(-100vw)
+    position absolute
+    left 55px
+    top 5px
+    z-index: 99
+    color white
+    font-size: 12pt
+
+#patient-dob-indication
+    font-size: 10pt
+    
+.entries-selected
+    #forwarding-link
+        transform: translateX(0)
+
+#forwarding-link
+    display flex
+    position absolute
+    top 15px
+    right 5px
+    display: flex
+    cursor: pointer
+    z-index 99
+    transform: translateX(150%)
+    transition: none
+    svg
+        width 23px
+        height 23px
+        margin-right 5px
+        vertical-align: middle
+    .label
+        line-height: 25px
+
+#forwarding-link:hover
+    border-bottom: solid 1px #fff
+
+
+#overviewtable
+    .click-button
+    .click-button:hover
+        overflow: hidden
+        background-color: cd-turquoise
+        color white
+        padding 10px
+        text-transform: uppercase    
+
+
+#search-button
+#cancel-search-button
+    background-color transparent
+    right 1px
+    svg
+        height 25px
+        width 25px
+
+#back-button
+    background-color cd-turquoise
+    transform: translateX(-200px)
+    left 2px
+    svg
+        height 30px
+        width 30px
+
+#back-button
+#search-button
+#cancel-search-button
+    position absolute
+    top 5px
+    opacity: 0
+    pointer-events: none
+    transition: all 0.3s
+    z-index: 99
+    color white
+    border-radius: 4px
+    padding 6px

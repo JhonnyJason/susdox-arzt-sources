@@ -1,0 +1,77 @@
+// codeverification styles
+#codeverification-hidden-templates 
+    display none
+
+#codeverification-message
+    display block
+    text-align: center
+    font-size: 15pt
+    margin-bottom 30px
+    padding-top 10px
+
+#codeverification-birthday-input
+    display block
+    border solid 1px cd-darkblue
+    padding: 7px
+    width 100%
+    box-sizing: border-box
+    font-size: 13pt
+    color cd-darkblue
+    background-color white
+    text-overflow: ellipsis;
+    text-align: center
+
+#codeverification-birthday-input:focus
+    padding: 7px
+    background-color white
+
+#codeverification-confirm-button.click-button
+    display block
+    max-width 180px
+    // width 160px
+    margin auto
+    border-radius: 10px
+    width 180px
+    background-color cd-turquoise
+    padding 15px
+    color white
+    box-sizing: border-box
+    text-align: center
+    font-size: 15pt
+
+#codeverification-confirm-button.click-button:hover
+    opacity 0.8
+#codeverification-confirm-button.click-button.disabled
+    opacity 0.6
+    pointer-events: none
+
+#codeverificationmodal
+    .modal-cancel-button
+            background-color transparent
+            color cd-darkblue
+            font-size 12pt
+
+#codeverification-user-feedback
+    color cd-darkblue
+    margin-top 12px
+    margin-bottom 12px
+    margin-left: 20px
+    margin-right 20px
+    text-align: center
+    font-size: 10pt
+    line-height: 120%
+    min-height 35px
+
+#codeverification-preloader
+    width 30px
+    height 30px
+    margin auto
+    padding-top 5px
+
+#codeverificationmodal
+    .error 
+        #codeverification-birthday-input.error
+            border solid 1px cd-errorred
+        
+        #codeverification-user-feedback
+            color cd-errorred

@@ -1,0 +1,11 @@
+//- usermodal structure
+#logoutmodal.usermodal
+    .click-catcher
+    .modal-container
+        .modal-header 
+            h2.modal-header-title=content.logoutmodalTitle
+            .modal-close-button.click-button: svg: use(href="#svg-cross-icon")
+        .modal-content!=content.logoutmodalMessage
+        .modal-actions
+            .modal-accept-button.click-button=content.acceptLogoutButtonText 
+            .modal-cancel-button.click-button=content.modalCancelButtonText

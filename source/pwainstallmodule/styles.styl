@@ -1,0 +1,118 @@
+// pwainstallmodule styles
+#pwainstall-howto-background
+    height 100%
+    width 100%
+    position: absolute
+    z-index: 299
+    transform translateX(-102%)
+    opacity 0
+    transition: opacity 0.3s
+    background-color alpha(cd-darkblue, 0.3) 
+
+    #pwainstall-howto-android-firefox
+        display none
+
+    #pwainstall-howto-firefox-desktop
+        display none
+
+    #pwainstall-howto-ios
+        display none
+
+    #pwainstall-howto-mac
+        display none
+
+
+.howto-frame
+    position absolute
+    bottom auto
+    left 0
+    top 0
+
+    width 100%
+    box-sizing: border-box
+
+.top-decoration
+.bottom-decoration
+    background-color #fff
+    width 30px
+    height 30px
+    margin auto
+    transform rotate(45deg)
+
+.top-decoration
+    position relative
+    bottom -20px
+    margin-left auto
+    margin-right calc(80px + 3vw)
+
+
+.bottom-decoration
+    position relative
+    top -20px
+    display none
+
+.howto-content
+    padding 20px
+    background-color #fff
+    p
+        line-height: 200%
+    svg
+        height 30px
+        width 30px
+        vertical-align: middle
+    .hint
+        font-size: 12pt
+        color grey
+
+#pwainstall-howto-background.howto-android-firefox
+    transform: translateX(0)
+    opacity: 1
+    #pwainstall-howto-android-firefox
+        display block
+
+#pwainstall-howto-background.howto-firefox-desktop
+    transform: translateX(0)
+    opacity: 1
+    #pwainstall-howto-android-firefox
+        display block
+
+#pwainstall-howto-background.howto-ios
+    transform: translateX(0)
+    opacity: 1
+    #pwainstall-howto-ios
+        display block
+
+#pwainstall-howto-background.howto-mac
+    transform: translateX(0)
+    opacity: 1
+    #pwainstall-howto-mac
+        display block
+
+
+@media (display-mode: standalone)
+    #pwainstall-howto-background
+        display none
+
+@media screen and (max-width: 430px)
+    .howto-frame
+        bottom 0
+        top auto
+    .top-decoration
+        display none
+    .bottom-decoration
+        display block
+
+@media screen and (max-width: 1000px)
+    .top-decoration
+        margin-right 110px
+
+    // margin-right 110px
+
+// #pwainstall-debug 
+//     height 100%
+//     width 100%
+//     padding 100px 10px
+//     background-color alpha(grey, 0.7)
+//     color black
+//     position: absolute
+//     z-index: 10

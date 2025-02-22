@@ -1,35 +1,45 @@
 doctype html
-html(lang="en")
+html(lang=languageTag)
     head
         meta(charset='utf-8')
         
         //- Title and Description
-        title New Website
-        meta(name='description', content='The new Website, has just been created!')
+        title !{pageTitle}
+        meta(name='description', content=pageDescription)
         
         //- Open Graph meta Tags
-        meta(property='og:image' content="https://")
-        meta(property='og:title' content="New Website")
-        meta(property='og:description' content='The new Website, has just been created!')
-        meta(property='og:type' content="website")
-        meta(property='og:url' content="https://")
-        meta(property='og:locale' content="en_US")
+        meta(property='og:image' content=pageImageURL)
+        meta(property='og:title' content=pageTitle)
+        meta(property='og:description' content=pageDescription)
+        meta(property='og:type' content=pageType)
+        meta(property='og:url' content=pageURL)
+        meta(property='og:locale' content=pageLocale)
 
         //- Manifest
-        link(rel='manifest' href='manifest.json')
-
-        //- Favicon
-        link(rel="icon", type="image/png", sizes="32x32", href="/favicon-32x32.png")
-        link(rel="icon", type="image/png", sizes="16x16", href="/favicon-16x16.png")
-        link(rel="apple-touch-icon", sizes="180x180", href="/apple-touch-icon.png")
-        link(rel="mask-icon", href="/safari-pinned-tab.svg", color="#5bbad5")
+        <link rel="manifest" href="/manifest.json">
+        //- link(rel='manifest' href='data:application/manifest+json,{"name":"'+pageTitle+'", "short_name": "PIN", "description": "'+pageDescription+'", "start_url":"'+pageURL+'", "scope": "/", "background_color": "rgba(255,255,255,1)", "theme_color": "rgba(255,255,255,1)", "icons": [ { "src": "/android-chrome-96x96.png", "sizes": "96x96", "type": "image/png" }, { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" }, { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" } ], "display": "standalone", "orientation": "portrait" }')
         
+        //- Favicon
+        link(rel="icon", type="image/png", sizes="32x32", href="favicon-32x32.png")
+        link(rel="icon", type="image/png", sizes="16x16", href="favicon-16x16.png")
+        link(rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon.png")
+        link(rel="mask-icon", href="safari-pinned-tab.svg", color="#00a39c")
+        //- <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+        //- <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+        //- <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+        //- <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">        
+        //- <link rel="apple-touch-startup-image" href="/launch.png">
+
         meta(name="msapplication-TileColor", content="#da532c")
         meta(name="theme-color", content="#ffffff")
         
+        //- Apple PWA
+        meta(name="apple-mobile-web-app-title" content=pageTitle)
+        meta(name="mobile-web-app-capable" content="yes")
+        meta(name="apple-mobile-web-app-status-bar-style" content="#fff")
+
         //- Screen
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
-
 
 
         include styles-include.pug

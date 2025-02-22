@@ -1,0 +1,13 @@
+//- credentialsframe structure
+include ../preloadermodule/preloader-mixins.pug
+
+.hidden-templates
+    #request-preloader: +preloader("requestcodeframe-preloader", "spinner-1")
+
+#requestcode-initial-slot
+    #requestcodeframe-container
+        label(for="request-birthday-input")=content.loginBirthdayLabel
+        input#request-birthday-input(type="date")
+        label(for="request-phone-input")=content.requestCodePhoneLabel
+        input#request-phone-input(type="text")
+        .user-feedback

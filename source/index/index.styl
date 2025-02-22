@@ -1,14 +1,33 @@
 /*==============================================================================
-RESET
+ RESET
 ==============================================================================*/
 @import '../stylereset/reset.styl'
 
 /*==============================================================================
-Global Styles
+ Global Styles
 ==============================================================================*/
 @import '../globalstyles/styles.styl'
 
 /*==============================================================================
-Including other components
+ Including other components
 ==============================================================================*/
 @import '../allmodules/allstyles.styl'
+
+/*==============================================================================
+ Specific body styles
+==============================================================================*/
+#real-body
+    width 100%
+    height 100%
+    display grid
+    grid-template-columns: 1fr
+    grid-template-rows: header-height auto footer-height
+
+#real-body.table
+    grid-template-rows: header-height auto
+
+@media miniscreen
+    #real-body
+        grid-template-rows: smaller-header-height auto smaller-footer-height
+    #real-body.table
+        grid-template-rows: smaller-header-height auto

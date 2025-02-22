@@ -1,0 +1,54 @@
+#requestcode-initial-slot
+    display none
+
+// credentialsframe styles
+#requestcodeframe-container
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    width 90%
+    max-height 90% 
+
+    label
+        display block
+        font-size: 12pt
+        color alpha(cd-darkblue, 0.7)
+    label:nth-child(3)
+        margin-top 10px
+
+    input
+        display: block
+        box-sizing: border-box
+        text-overflow: ellipsis;
+        padding: 7px
+        box-sizing: border-box
+        color cd-darkblue
+        background-color white
+        border solid 1px cd-darkblue
+        width 100%
+        text-align: center
+
+    input:focus
+        padding: 7px
+        background-color white
+
+    .user-feedback
+        color cd-darkblue
+        margin-top 12px
+        font-size: 10pt
+        line-height: 120%
+        min-height 35px
+
+    #requestcodeframe-preloader
+        width 30px
+        height 30px
+        margin auto
+        padding-top 5px
+
+#requestcodeframe-container.error 
+    input
+        border solid 1px cd-errorred
+    
+    .user-feedback
+        color cd-errorred

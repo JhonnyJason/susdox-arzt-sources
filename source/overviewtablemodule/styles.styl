@@ -1,0 +1,237 @@
+// overviewtable styles
+button-size = 22px
+
+@import '../../../node_modules/gridjs/dist/theme/mermaid.css'
+
+.gridjs-head
+    padding 5px 0
+
+.gridjs-search
+    // transition: transform 0.3s
+    float: none
+
+input.gridjs-search-input
+    width 100%
+
+#overviewtable
+    position relative
+    width 100%
+    background-color: cd-darkblue
+
+.gridjs-container
+    box-sizing: border-box
+
+.gridjs-wrapper
+    background-color: white
+
+input.gridjs-input
+    border-radius: 4px
+
+th.gridjs-th
+    padding 7px 17px
+    font-size: 12pt
+
+.gridjs-footer
+    padding-left 5px
+    padding-right 5px
+    height 50px
+    border-radius: 0 0 4px 4px  
+    
+.gridjs-pagination
+    vertical-align: middle
+    display: flex
+    justify-content: space-between
+
+.gridjs-summary
+    vertical-align: middle
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+    font-size: 10pt
+    // width 200px
+    margin 0 !important
+
+.gridjs-pages
+    vertical-align: middle
+    display flex
+    // max-width: 100% 
+    margin-left: auto
+
+.gridjs-pages > button
+    overflow: hidden
+    flex-shrink 2
+    font-size: 9pt
+    padding: 3px !important
+
+.gridjs-pages > button:first-child
+    flex-shrink 10
+    text-overflow: ellipsis
+
+.gridjs-pages > button:last-child
+    flex-shrink 10
+    text-overflow: ellipsis
+
+
+// table.gridjs-table
+//     min-width: 1480px
+
+.gridjs-wrapper
+    border-radius: 4px 4px 0 0 
+    // max-height: var(--table-max-height)
+    height: var(--table-max-height) !important
+
+th.gridjs-th
+    background-color #F9FAFB
+    z-index 20
+
+tr.gridjs-tr:nth-child(2n)
+    background-color: alpha(cd-darkblue, 0.3)
+
+td.gridjs-td
+    background transparent
+    font-size: 12pt
+    vertical-align: middle
+    padding 6px 12px
+    height: fit-content
+    svg
+        width: button-size
+        height button-size
+    a:hover
+        text-decoration: underline
+        cursor pointer
+        svg
+            border-bottom solid 1px cd-darkblue
+
+    ul.befunde
+        list-style-image url("img/document_certificate.png")
+        padding-left 15px
+    ul.bilder
+        list-style-image url("img/icon_bild.gif")
+        padding-left 15px
+
+    ul.documents
+        list-style none
+        padding-left 20px
+        li
+            position relative
+            overflow: visible
+            line-height: 26px
+    li.bild::before
+        content ""
+        display block    
+        background-image url("img/icon_bild.gif")
+        position: absolute
+        top 3px
+        left -20px
+        height 16px
+        width 16px
+    
+    li.befund::before
+        content ""
+        display block    
+        background-image url("img/document_certificate.png")
+        position: absolute
+        top 0
+        left -20px
+        height 16px
+        width 16px
+
+.isNewDot
+    height 12px
+    width 12px
+    border-radius: 50%
+    border solid 1px #999
+    background-color: #eee
+    margin auto
+
+.isNewDot.isNew
+    border-color #449900
+    background-color: #44e000
+
+
+// isNew indicator
+th.gridjs-th:nth-child(1) 
+td.gridjs-td:nth-child(1)
+    width 26px !important
+    min-width 26px !important
+    max-width 26px !important
+    padding-left 0
+    padding-right 0
+    text-align: center
+
+// Name
+th.gridjs-th:nth-child(2) 
+td.gridjs-td:nth-child(2) 
+    width auto !important
+    min-width auto !important
+    max-width 300px !important
+
+// Geb.-Datum
+th.gridjs-th:nth-child(3) 
+td.gridjs-td:nth-child(3)
+    width 114px !important
+    min-width 114px !important
+    max-width 114px !important
+    text-align: center
+    font-size: 11pt
+
+
+// Patient Table State ------------------------------
+
+// .patient-table.go-back
+//     .gridjs-search
+//         transform translateX(0)
+
+.patient-table
+    .gridjs-search
+        transform translateX(102vw)
+
+.patient-table.search
+    .gridjs-search
+        transform translateX(50px)
+        width 190px
+
+    // .gridjs-search-input
+    //     animation slide-to-right 0.2s ease-in forwards
+    // .gridjs-search-input.go-back
+        
+    // table.gridjs-table
+    //     min-width: 920px
+
+    // Documents
+    th.gridjs-th:nth-child(2) 
+    td.gridjs-td:nth-child(2)
+        width auto !important
+        min-width auto !important
+        max-width auto !important
+        text-align: left
+
+    // forward
+    th.gridjs-th:nth-child(3) 
+    td.gridjs-td:nth-child(3)
+        width 60px !important
+        min-width 60px !important
+        max-width 60px !important
+        text-align: center
+
+
+
+// ---------- animations --------------
+@keyframes slide-to-right
+    from
+        transform translateX(0)
+    to
+        transform: translateX(calc(100vw - 234px))
+
+@keyframes slide-to-left
+    from
+        transform translateX(calc(100vw - 234px))
+    to
+        transform: translateX(0)
+
+
+@keyframes make-space
+    from
+        transform translateX(calc(100vw - 234px))
+    to
+        transform translateX(calc(100vw - 534px))

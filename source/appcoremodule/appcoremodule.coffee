@@ -83,7 +83,7 @@ setUIState = (base, mod, ctx) ->
             else base = "no-account"
 
     ########################################
-    setAppState(base, mod)
+    setAppState(base, mod, ctx)
 
     switch mod
         when "logoutconfirmation" then confirmLogoutProcess()
@@ -94,7 +94,7 @@ setUIState = (base, mod, ctx) ->
     
 
     ########################################
-    # setAppState(base, mod)
+    # setAppState(base, mod, ctx)
     return
 
 ############################################################
@@ -120,6 +120,7 @@ loadAppWithNavState = (navState) ->
 ############################################################
 setNavState = (navState) ->
     log "setNavState"
+    olog navState
     baseState = navState.base
     modifier = navState.modifier
     context = navState.context
@@ -176,7 +177,7 @@ prepareAccount = ->
     log "prepareAccount"
     setAppState("logging-in", "none")
 
-    try         
+    try
         await account.assertValidLogin()
         ## here the credentials are available and valid
         
@@ -226,13 +227,13 @@ updateUIData = ->
     return
 
 ############################################################
-setAppState = (base, mod) ->
+setAppState = (base, mod, ctx) ->
     log "setAppState"
     if base then appBaseState = base
     if mod then appUIMod = mod
     log "#{appBaseState}:#{appUIMod}"
 
-    uiState.applyUIState(appBaseState, appUIMod)
+    uiState.applyUIState(appBaseState, appUIMod, ctx)
     return
 
 ############################################################

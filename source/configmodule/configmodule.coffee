@@ -10,7 +10,6 @@ export desktopLoginURL = "https://www.bilder-befunde.at/pwa-api/api/v1/desktop-l
 export appVersion = "v0.0.1"
 
 
-
 # TODO integrate
 export requestSharesURL = "https://www.bilder-befunde.at/pwa-api/api/v1/cockpit/shares/"
 export forwardBaseURL = "#{location.origin}/webview/viewer/forward.php?"

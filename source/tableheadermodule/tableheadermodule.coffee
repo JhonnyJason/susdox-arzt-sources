@@ -5,6 +5,9 @@ import { createLogFunctions } from "thingy-debug"
 #endregion
 
 ############################################################
+import * as nav from "navhandler"
+
+############################################################
 import * as table from "./overviewtablemodule.js"
 import * as S from "./statemodule.js"
 
@@ -13,10 +16,11 @@ import * as S from "./statemodule.js"
 backButton = document.getElementById("back-button")
 searchButton = document.getElementById("search-button")
 cancelSearchButton = document.getElementById("cancel-search-button")
-#endregion
 
-# ############################################################
-# patientNameIndication = document.getElementById("patient-name-indication")
+patientNameIndication = document.getElementById("patient-name-indication")
+patientDobIndication = document.getElementById("patient-dob-indication")
+
+#endregion
 
 ############################################################
 export initialize = ->
@@ -40,7 +44,7 @@ searchButtonClicked = ->
 
 backButtonClicked = ->
     log "backButtonClicked"
-    table.backFromPatientTable()
+    nav.back()
     return
 
 

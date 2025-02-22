@@ -48,6 +48,10 @@ export requestUpdateCode = ->
     return await nav.toBase("request-update-account")
 
 ############################################################
+export patientSelect = (ctx) ->
+    return await nav.toBaseAt("patient-table", ctx, 1)
+
+############################################################
 # export codeReveal = (toReveal) ->
 #     if toReveal then return nav.toMod("coderevealed")
 #     else return nav.toMod("none")
@@ -59,9 +63,9 @@ export requestUpdateCode = ->
 # export showQR = ->
 #     return nav.toBase("show-qr")
     
-############################################################
-export screeningsList = ->
-    return nav.toBase("screenings-list")
+# ############################################################
+# export screeningsList = ->
+#     return nav.toBase("screenings-list")
 
 ############################################################
 export reload = ->

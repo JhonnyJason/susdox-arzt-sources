@@ -14,6 +14,8 @@ import * as table from "./overviewtablemodule.js"
 #region State Setter Functions
 export setToDefaultState = ->
     log "setToDefaultState"
+    table.unsetPatient()
+
     cubeModule.reset()
     requestFrame.reset()
     credentialsFrame.reset()
@@ -29,6 +31,8 @@ export setToDefaultState = ->
 ############################################################
 export setToAddAccountState = ->
     log "setToAddAccountState"
+    table.unsetPatient()
+
     cubeModule.reset()
     credentialsFrame.prepareForAddCode()
 
@@ -43,6 +47,8 @@ export setToAddAccountState = ->
 ############################################################
 export setToUpdateAccountState = ->
     log "setToUpdateAccountState"
+    table.unsetPatient()
+
     cubeModule.reset()
     credentialsFrame.prepareForCodeUpdate()
 
@@ -57,6 +63,8 @@ export setToUpdateAccountState = ->
 ############################################################
 export setToRequestCodeState = ->
     log "setToRequestCodeState"
+    table.unsetPatient()
+
     cubeModule.reset()
     cubeModule.setRequestCodeFrame() # must be before requestFrame.prepareForRequest, otherwise the Frame is not in the DOM
     # credentialsFrame.reset() ## no need to reset here!
@@ -73,6 +81,8 @@ export setToRequestCodeState = ->
 ############################################################
 export setToRequestUpdateCodeState = ->
     log "setToRequestUpdateCodeState"
+    table.unsetPatient()
+
     cubeModule.reset()
     cubeModule.setRequestCodeFrame() # must be before requestFrame.prepareForRequest, otherwise the Frame is not in the DOM
     # credentialsFrame.reset() ## no need to reset here!
@@ -89,6 +99,8 @@ export setToRequestUpdateCodeState = ->
 ############################################################
 export setToLoggingInState = ->
     log "setToLoggingInState"
+    table.unsetPatient()
+
     cubeModule.reset()
     cubeModule.setPreloader()
     credentialsFrame.reset()
@@ -133,7 +145,7 @@ export setToPatientTableState = (ctx) ->
     content.classList.remove("logging-in")
     content.classList.remove("request-code")    
 
-    realBody.classList.remove("table")
+    realBody.classList.add("table")
     return
 
 #endregion

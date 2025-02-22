@@ -16,6 +16,9 @@
     #search-button
         opacity 0
         pointer-events: none
+    #patient-indication
+        opacity 0
+        pointer-events: none
 
 .patient-table.go-back
     #back-button
@@ -28,7 +31,6 @@
         transform translateX(-100vw)
         pointer-events: none
 
-
 #patient-indication
     pointer-events: none
     transition: all 0.3s
@@ -36,10 +38,11 @@
     transform: translateX(-100vw)
     position absolute
     left 55px
-    top 5px
+    top 7px
     z-index: 99
     color white
-    font-size: 12pt
+    font-size: 14pt
+    line-height: 115%
 
 #patient-dob-indication
     font-size: 10pt
@@ -79,14 +82,16 @@
         padding 10px
         text-transform: uppercase    
 
-
-#search-button
-#cancel-search-button
-    background-color transparent
-    right 1px
-    svg
-        height 25px
-        width 25px
+    #search-button
+    #cancel-search-button
+        background-color transparent
+        right 1px
+        svg
+            height 25px
+            width 25px
+    
+    #back-button
+        padding 7px
 
 #back-button
     background-color cd-turquoise

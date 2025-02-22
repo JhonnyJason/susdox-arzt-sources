@@ -10,17 +10,15 @@ import dayjs from "dayjs"
 # import { de } from "dayjs/locales"
 
 ############################################################
-import { retrieveData } from "./datamodule.js"
+import * as triggers from "./navtriggers.js"
 
 ############################################################
-import * as S from "./statemodule.js"
 import * as utl from "./tableutils.js"
 import * as header from "./tableheadermodule.js"
 import * as dataModule from "./datamodule.js"
 import {
     tableRenderCycleMS, searchDebounceMS, forwardBaseURL 
     } from "./configmodule.js"
-
 
 ############################################################
 #region DOM Cache
@@ -51,6 +49,10 @@ useExtendedPatientTable = false
 instantSearchLocked = false
 currentKeyword = null
 nextSearch = null
+
+
+############################################################
+enteredDefaultState = false
 
 ############################################################
 export initialize = ->
@@ -247,7 +249,7 @@ renderPatientTable = (dataPromise) ->
         gridjsFrame.innerHTML = ""    
         await tableObj.render(gridjsFrame)
     
-    tableObj.config.store.subscribe(tableStateChanged)
+    # tableObj.config.store.subscribe(tableStateChanged)
     
     gridJSSearch = document.getElementsByClassName("gridjs-search")[0]
     gridJSSearch.addEventListener("animationend", searchPositionMoved)
@@ -387,11 +389,10 @@ gridSearchByString = (name) ->
 
 selectPatient = (selectedPatientId, selectedPatientName, selectedDateOfBirth) ->
     log "selectPatient #{selectedPatientId},#{selectedPatientName},#{selectedDateOfBirth}"
-    patientId = selectedPatientId
-    # patientString = "#{selectedPatientName}, #{selectedDateOfBirth}"
-    # header.setPatientString(patientString)
-    header.indicatePatient(selectedPatientName, selectedDateOfBirth)
-    setPatientSelectedState()
+
+    ctx = { selectedPatientId, selectedPatientName, selectedDateOfBirth }
+    olog ctx
+    triggers.patientSelect(ctx)
     return
     
 
@@ -420,19 +421,6 @@ export refresh = ->
     setDefaultState()
     return 
 
-
-export backFromPatientTable = ->
-    log "backFromPatientTable"
-    dataModule.invalidatePatientData()
-    # navigatingBack = true
-    # overviewtable.classList.add("go-back")
-    # forwardingHRef = ""
-    # updateForwarderLink()
-
-    setDefaultState()
-    return
-
-
 export startPatientSearch = ->
     overviewtable.classList.add("search")
     gridJSSearchInput = document.getElementsByClassName("gridjs-search-input")[0]
@@ -450,14 +438,13 @@ export cancelPatientSearch = ->
 #region set to state Functions
 export setDefaultState = ->
     log "setDefaultState"
+    return if enteredDefaultState
+    enteredDefaultState = true
+
+    dataModule.invalidatePatientData()
     overviewtable.classList.remove("patient-table")
     overviewtable.classList.remove("search")
-    # overviewtable.classList.remove("go-back")
-
-    # this is when we want to destroy the table completely
-
-    # dataPromise = dataModule.getAllData()
-    # renderTable(dataPromise) 
+    
     renderTable()
     return
 
@@ -474,14 +461,26 @@ export setPatientSelectedState = ->
 
 export setPatient = (ctx) ->
     log "setPatient"
-    log "...to be implemented!"
-    ## TODO implement
+    enteredDefaultState = false
+
+    olog ctx
+
+    { selectedPatientId, selectedPatientName, selectedDateOfBirth } = ctx
+
+    patientId = selectedPatientId
+    header.indicatePatient(selectedPatientName, selectedDateOfBirth)
+    setPatientSelectedState()
     return
 
 export unsetPatient =  ->
     log "unsetPatient"
-    log "...to be implemented!"
-    ## TODO implement
+    enteredDefaultState = false
+    
+    dataModule.invalidatePatientData()
+    overviewtable.classList.remove("patient-table")
+    overviewtable.classList.remove("search")
+    
+    patientID = null
     return
 
 #endregion

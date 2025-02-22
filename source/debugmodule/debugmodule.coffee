@@ -21,6 +21,7 @@ export modulesToDebug = {
     # menumodule: true
     # modalcore: true
     # navtriggers: true 
+    overviewtablemodule: true
     # radiologistdatamodule: true
     # requestcodeframemodule: true
     # scimodule: true

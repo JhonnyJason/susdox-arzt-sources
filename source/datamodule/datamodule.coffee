@@ -166,6 +166,7 @@ export standardServerObj = ->
     handle = (response) ->
         log "handle data request" 
         log response.status
+        alert("handle Response - status: #{response.status}")
         if !response.ok then return null
         return await response.json()
 
@@ -175,6 +176,8 @@ export standardServerObj = ->
         log "postprocess data request"
         # olog data
         # return []
+        dataString = JSON.stringify(data, null, 4)
+        alert("Post Handle received Data is:\n#{dataString}")
         if data? and data.roleId? then setUserRole(data.roleId)            
         if data and data.shareSummary then return utl.groupAndSortByStudyId(data.shareSummary)
         else return []

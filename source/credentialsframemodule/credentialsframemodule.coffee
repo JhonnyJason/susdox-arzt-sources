@@ -75,12 +75,13 @@ loginUsernameInputKeyDowned = (evt) ->
 extractCredentials = ->
     log "extractCredentials"
     vpn = loginVPNInput.value.toLowerCase()
+    vpn = vpn.trim()
     # TODO check if vpn is valid - ignoring for now
 
-
     username = loginUsernameInput.value.toLowerCase()
+    username = username.trim()
     if !username then throw new InputError("Kein Benutzername eingegeben!")
-    
+
     password = loginPasswordInput.value
     password = password.trim()
 

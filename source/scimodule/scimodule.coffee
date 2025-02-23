@@ -148,9 +148,15 @@ export loginRequest = (body) ->
     # olog fetchOptions
 
     try
-        console.log(loginURL)
+        console.log(loginURL)        
+        
+        optionsString = JSON.stringify(fetchOptions, null, 4)
+        alert("sending Request: \n#{loginURL}\n#{optionsString}")
+
         response = await fetch(loginURL, fetchOptions)
         console.log(response.status)
+        alert("request Responded:\n#{response.status}")
+
         # if response.ok then return await response.text()
         ## TODO: use json from response
         if response.ok then return await response.json()

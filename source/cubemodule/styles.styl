@@ -47,6 +47,8 @@ corrrectionScale = 0.82 // 1 - (size / 2 * persp)
     transform: translate(-50%, -50%)
     width: cube-size;
     height: cube-size;
+    transform-style preserve-3d
+    -webkit-transform-style preserve-3d
     perspective: perspective
     filter drop-shadow(0 0 15px alpha(black, 0.2));
     background: transparent
@@ -55,9 +57,8 @@ corrrectionScale = 0.82 // 1 - (size / 2 * persp)
     position: absolute
     width: inherit
     height: inherit
-    // width: 210px
-    // height: 210px
-    transform-style: preserve-3d;
+    transform-style preserve-3d
+    -webkit-transform-style preserve-3d
     transform scale(corrrectionScale)
     transition transform 0.6s
     background transparent
@@ -67,6 +68,8 @@ corrrectionScale = 0.82 // 1 - (size / 2 * persp)
         height: inherit
         position: absolute;
         background-color white
+        transform-style preserve-3d
+        -webkit-transform-style preserve-3d
 
     #cube-front
         transform: rotateY(0deg) translateZ(cube-size * 0.5)
@@ -121,6 +124,9 @@ corrrectionScale = 0.82 // 1 - (size / 2 * persp)
             // -moz-user-select: none    
             // -ms-user-select: none      
             // user-select: none
+        input
+            transform translate3d(0, 0, 0)
+            will-change transform
 
     #cube-right
     #cube-front

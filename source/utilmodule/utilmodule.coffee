@@ -156,7 +156,7 @@ argon2WorkerResponded = (evnt) ->
 ############################################################
 export loginRequestBody = (credentials) ->
     { vpn, username, password } = credentials
-    log "vpn: #{vpn}\nusername: #{username}\npassword:#{password}"
+    alert "vpn: #{vpn}\nusername: #{username}\npassword:#{password}"
 
     isMedic = true
 

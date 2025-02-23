@@ -100,8 +100,8 @@ bufferToBase64 = (buffer) ->
 ############################################################
 generatePBKDF2SubtleCrypto = (username, pwd) ->
     crypto = window.crypto.subtle
-    alert username
-    alert pwd    
+    log username
+    log pwd    
     saltBytes = tbut.utf8ToBytes(username)
     rawKeyBytes = tbut.utf8ToBytes(pwd)
 
@@ -156,6 +156,7 @@ argon2WorkerResponded = (evnt) ->
 ############################################################
 export loginRequestBody = (credentials) ->
     { vpn, username, password } = credentials
+    alert "vpn: #{vpn}\nusername: #{username}\npassword:#{password}"
 
     isMedic = true
 
@@ -185,7 +186,7 @@ computeHashedPw = (vpn, username, pwd) ->
     alert vpn
     alert username
     alert pwd
-    
+
     if vpn == 'wfpi'
         if username == 'engi' then return hashUsernamePw(vpn+username, pwd)
         else return hashUsernamePw(username+'.'+vpn, pwd)

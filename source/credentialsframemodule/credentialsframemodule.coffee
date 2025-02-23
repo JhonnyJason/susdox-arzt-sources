@@ -77,16 +77,13 @@ extractCredentials = ->
     vpn = loginVPNInput.value.toLowerCase()
     vpn = vpn.trim()
     # TODO check if vpn is valid - ignoring for now
-    alert vpn
 
     username = loginUsernameInput.value.toLowerCase()
     username = username.trim()
     if !username then throw new InputError("Kein Benutzername eingegeben!")
-    alert username
 
     password = loginPasswordInput.value
     password = password.trim()
-    alert password
 
     credentials = { vpn, username, password }
     userFeedback.innerHTML = loginPreloader.innerHTML
@@ -94,8 +91,6 @@ extractCredentials = ->
     log "credentials: "
     olog credentials
 
-    alert JSON.stringify(credentials, null, 4)
-    
     try
         loginBody = await utl.loginRequestBody(credentials)
         response = await sci.loginRequest(loginBody)

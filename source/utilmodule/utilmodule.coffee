@@ -156,7 +156,6 @@ argon2WorkerResponded = (evnt) ->
 ############################################################
 export loginRequestBody = (credentials) ->
     { vpn, username, password } = credentials
-    alert "vpn: #{vpn}\nusername: #{username}\npassword:#{password}"
 
     isMedic = true
 
@@ -183,9 +182,7 @@ export hashedCredentials = (credentials) ->
 
 ############################################################
 computeHashedPw = (vpn, username, pwd) ->
-    # log vpn
-    # log username
-    # log pwd
+    log "#{vpn} - #{username} - #{pwd}"
 
     if vpn == 'wfpi'
         if username == 'engi' then return hashUsernamePw(vpn+username, pwd)

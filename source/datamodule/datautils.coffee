@@ -266,14 +266,9 @@ export postRequest = (url, data) ->
             'Content-Type': 'application/json'
 
     try
-        optionsString = JSON.stringify(options, null, 4)
-        alert("sending Request: \n#{url}\n#{optionsString}")
 
         response = await fetch(url, options)
-        alert("request Responded:\n#{response.status}")
 
         if !response.ok then throw new Error("Response not ok - status: "+response.status+"!")
         return response.json()
-    catch err 
-        alert("caught Request Error: \n#{err.message}")
-        throw new Error("Network Error: "+err.message)
+    catch err then throw new Error("Network Error: "+err.message)

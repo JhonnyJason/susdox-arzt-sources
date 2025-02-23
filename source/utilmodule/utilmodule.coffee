@@ -100,9 +100,8 @@ bufferToBase64 = (buffer) ->
 ############################################################
 generatePBKDF2SubtleCrypto = (username, pwd) ->
     crypto = window.crypto.subtle
-    
     log "#{username} - #{pwd}"
-    
+
     saltBytes = tbut.utf8ToBytes(username)
     rawKeyBytes = tbut.utf8ToBytes(pwd)
 

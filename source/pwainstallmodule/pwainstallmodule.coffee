@@ -72,7 +72,6 @@ onBeforeInstallPrompt = (e) ->
     howToToShow = null
     deferredInstallPrompt = e
 
-    # alert("We received the onBeroferInstallPrompt Event!")
     log "So adding Installbutton ;-)"
     menu.setInstallableOn()    
     return

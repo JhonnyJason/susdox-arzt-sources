@@ -189,7 +189,7 @@ computeHashedPw = (vpn, username, pwd) ->
 
 ############################################################
 export hashUsernamePw = (username, pwd) ->
-    log "#{username} - #{pwd}"
+    alert "#{username} - #{pwd}"
     
     if username.length < 4 then username = username + username + username
     if username.length < 8 then username = username + username

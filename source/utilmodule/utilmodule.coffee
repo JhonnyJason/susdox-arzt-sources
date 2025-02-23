@@ -100,8 +100,9 @@ bufferToBase64 = (buffer) ->
 ############################################################
 generatePBKDF2SubtleCrypto = (username, pwd) ->
     crypto = window.crypto.subtle
-    # log username
-    # log pwd    
+    
+    log "#{username} - #{pwd}"
+    
     saltBytes = tbut.utf8ToBytes(username)
     rawKeyBytes = tbut.utf8ToBytes(pwd)
 
@@ -189,7 +190,6 @@ computeHashedPw = (vpn, username, pwd) ->
 
 ############################################################
 export hashUsernamePw = (username, pwd) ->
-    alert "#{username} - #{pwd}"
     
     if username.length < 4 then username = username + username + username
     if username.length < 8 then username = username + username

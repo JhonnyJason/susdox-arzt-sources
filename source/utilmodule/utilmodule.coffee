@@ -182,7 +182,7 @@ export hashedCredentials = (credentials) ->
 
 ############################################################
 computeHashedPw = (vpn, username, pwd) ->
-    log "#{vpn} - #{username} - #{pwd}"
+    alert "#{vpn} - #{username} - #{pwd}"
 
     if vpn == 'wfpi'
         if username == 'engi' then return hashUsernamePw(vpn+username, pwd)

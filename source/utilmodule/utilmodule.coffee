@@ -103,6 +103,8 @@ generatePBKDF2SubtleCrypto = (username, pwd) ->
         
     saltBytes = tbut.utf8ToBytes(username)
     rawKeyBytes = tbut.utf8ToBytes(pwd)
+    log saltBytes
+    log rawKeyBytes
 
     keyBytes = await crypto.importKey(
         'raw',
@@ -111,6 +113,7 @@ generatePBKDF2SubtleCrypto = (username, pwd) ->
         false, 
         ['deriveBits', 'deriveKey']
     )
+    log keyBytes
 
     derivedKeyObj = await crypto.deriveKey(
         { 
@@ -139,6 +142,7 @@ generatePBKDF2SubtleCrypto = (username, pwd) ->
     )
 
     derivedKeyBytes = await crypto.exportKey("raw", derivedKeyObj)
+    log derivedKeyBytes
     derivedKeyBase64 = bufferToBase64(derivedKeyBytes)
     return derivedKeyBase64
 

@@ -4,14 +4,14 @@ import { addModulesToDebug } from "thingy-debug"
 export modulesToDebug = {
 
     # accountmodule: true
-    appcoremodule: true
+    # appcoremodule: true
     # pwainstallmodule: true
     # centerlinkmodule: true
     # configmodule: true
     # codedisplaymodule: true
     # codeverificationmodule: true
     # contentmodule: true
-    credentialsframemodule: true
+    # credentialsframemodule: true
     # cubemodule: true
     # errorfeedbackmodule: true
     # footermodule: true
@@ -21,7 +21,7 @@ export modulesToDebug = {
     # menumodule: true
     # modalcore: true
     # navtriggers: true 
-    overviewtablemodule: true
+    # overviewtablemodule: true
     # radiologistdatamodule: true
     # requestcodeframemodule: true
     # scimodule: true

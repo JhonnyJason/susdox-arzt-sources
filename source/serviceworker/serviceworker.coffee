@@ -24,6 +24,8 @@ fixedAppFiles = [
     "/manifest.json"
     "/img/icon.png"
     "/img/sustsol_logo.png"
+    "/img/document_certificate.png"
+    "/img/icon_bild.gif"
 ]
 
 optionalAppFiles = [
@@ -56,9 +58,9 @@ urlMatchOptions = {
 onRegister = ->
     # ## prod-c log "onRegister"
     # #uncomment for production - comment for testing
-    # self.addEventListener('activate', activateEventHandler)
-    # self.addEventListener('fetch', fetchEventHandler)
-    # self.addEventListener('install', installEventHandler)
+    self.addEventListener('activate', activateEventHandler)
+    self.addEventListener('fetch', fetchEventHandler)
+    self.addEventListener('install', installEventHandler)
     # # # #end uncomment for production
     self.addEventListener('message', messageEventHandler)
 

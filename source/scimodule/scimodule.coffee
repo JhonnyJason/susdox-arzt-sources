@@ -45,6 +45,7 @@ postData = (url, data) ->
 
         optionsString = JSON.stringify(options, null, 4)
         alert("sending Request: \n#{url}\n#{optionsString}")
+
         response = await fetch(url, options)
         console.log(response.status)
         alert("request Responded:\n#{response.status}")

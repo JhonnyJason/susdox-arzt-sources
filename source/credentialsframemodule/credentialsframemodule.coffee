@@ -51,6 +51,12 @@ export initialize = ->
     loginUsernameInput.addEventListener("keydown", loginUsernameInputKeyDowned)
 
     loginPasswordInput.addEventListener("keydown", loginPasswordInputKeyDowned)
+
+    focusInput = -> this.focus()
+    loginVPNInput.addEventListener("click", focusInput)
+    loginUsernameInput.addEventListener("click", focusInput)
+    loginPasswordInput.addEventListener("click", focusInput)
+
     return
 
 ############################################################

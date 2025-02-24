@@ -69,11 +69,11 @@ loginPasswordInputKeyDowned = (evt) ->
     return
 
 ############################################################
-loginUsernameInputKeyDowned = (evt) ->    
+loginUsernameInputKeyDowned = (evt) ->
     # 13 is enter
     if evt.keyCode == 13
         evt.preventDefault()
-        loginCodeInput.focus()
+        loginPasswordInput.focus()
         return    
     return
 

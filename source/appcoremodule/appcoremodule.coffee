@@ -87,11 +87,6 @@ setUIState = (base, mod, ctx) ->
 
     switch mod
         when "logoutconfirmation" then confirmLogoutProcess()
-        when "invalidcode" then invalidCodeProcess()
-        when "codeverification"
-            if urlCode? then await urlCodeDetectedProcess()
-            else nav.toMod("none")
-    
 
     ########################################
     # setAppState(base, mod, ctx)
@@ -139,7 +134,6 @@ activeAccountChanged = ->
     if accountAvailable then await prepareAccount()
     else # last account has been deleted
         setAppState("no-account","none")
-        deleteImageCache()
 
     if redirected then return
 
@@ -185,10 +179,12 @@ prepareAccount = ->
             redirected = true
             return desktopRedirect()
 
+        setAppState("main-table", "none")
+        return
     catch err then log err # here credentials were invalid
-    # finally setAppState("main-table", "none")
-    setAppState("main-table", "none")
+    accountAvailable = false
     return
+    
 
 ############################################################
 desktopRedirect = ->
@@ -270,12 +266,6 @@ onServiceWorkerSwitch = ->
     serviceWorker.controller.postMessage("tellMeVersion")
     return
 
-deleteImageCache = ->
-    log "deleteImageCache"
-    if serviceWorker? and serviceWorker.controller?
-        serviceWorker.controller.postMessage("deleteImageCache")
-    return
-    
 #endregion
 
 ############################################################
@@ -300,27 +290,5 @@ confirmLogoutProcess = ->
     catch err then log err
     finally nav.toRoot(true)
     return
-
-############################################################
-invalidCodeProcess = ->
-    log "invalidCodeProcess"
-    try
-        deleteCode = await invalidcodeModal.promptCodeDeletion()
-        if deleteCode then return account.deleteAccount()
-        triggers.codeReveal(true)
-    catch err
-        log err
-        switch err
-            when "updateButtonClicked" then triggers.accountUpdate()
-            when "click-catcher", "modal-cancel-button", "modal-close-button"
-                triggers.codeReveal(true)
-    return
-
-############################################################
-export codeUpdateProcess = ->
-    log "codeUpdateProcess"
-
-    return
-
 
 #endregion

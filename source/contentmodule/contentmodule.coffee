@@ -45,58 +45,6 @@ export setToAddAccountState = ->
     return
 
 ############################################################
-export setToUpdateAccountState = ->
-    log "setToUpdateAccountState"
-    table.unsetPatient()
-
-    cubeModule.reset()
-    credentialsFrame.prepareForCodeUpdate()
-
-    content.classList.remove("preload")
-    content.classList.add("add-account")
-    content.classList.remove("logging-in")
-    content.classList.remove("request-code")
-
-    realBody.classList.remove("table")
-    return
-
-############################################################
-export setToRequestCodeState = ->
-    log "setToRequestCodeState"
-    table.unsetPatient()
-
-    cubeModule.reset()
-    cubeModule.setRequestCodeFrame() # must be before requestFrame.prepareForRequest, otherwise the Frame is not in the DOM
-    # credentialsFrame.reset() ## no need to reset here!
-    requestFrame.prepareForRequest()
-
-    content.classList.remove("preload")
-    content.classList.remove("add-account")
-    content.classList.remove("logging-in")
-    content.classList.add("request-code")
-
-    realBody.classList.remove("table")
-    return
-
-############################################################
-export setToRequestUpdateCodeState = ->
-    log "setToRequestUpdateCodeState"
-    table.unsetPatient()
-
-    cubeModule.reset()
-    cubeModule.setRequestCodeFrame() # must be before requestFrame.prepareForRequest, otherwise the Frame is not in the DOM
-    # credentialsFrame.reset() ## no need to reset here!
-    requestFrame.prepareForUpdateRequest()
-
-    content.classList.remove("preload")
-    content.classList.remove("add-account")
-    content.classList.remove("logging-in")
-    content.classList.add("request-code")
-
-    realBody.classList.remove("table")
-    return
-
-############################################################
 export setToLoggingInState = ->
     log "setToLoggingInState"
     table.unsetPatient()

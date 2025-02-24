@@ -135,40 +135,10 @@ instantSearch = (keyword) ->
 ############################################################
 renderTable = (dataPromise) ->
     log "renderTable"
-    
-    #region variant Standard Request Once
-    # columns = utl.getStandardColumnObjects()
-    # data = -> dataPromise
-    # minDate = dataModule.getMinDate()
-    # language = utl.getLanguagObjectWithMinDate(minDate)
-    # search = true
 
-    # pagination = { limit: 50 }
-    # # sort = { multiColumn: false }
-    # sort = false
-    # fixedHeader = true
-    # resizable = false
-    # # resizable = true
-    # height = "#{utl.getTableHeight()}px"
-    # rootStyle.setProperty("--table-max-height", height)
-    # width = "100%"
-    
-    # autoWidth = false
-    
-    # # gridJSOptions = { columns, data, language, search, pagination, sort, fixedHeader, resizable, height, width, autoWidth }
-    # ## Try without defining the height
-    # gridJSOptions = { columns, data, language, search, pagination, sort, fixedHeader, resizable,
-    # #  height, 
-    # #  width, 
-    # #  autoWidth 
-    #  }
-    #endregion
-
-    #region variant request server via gridjs
     columns = utl.getStandardColumnObjects()
     server = dataModule.standardServerObj()
-    # minDate = dataModule.getMinDate()
-    # language = utl.getLanguagObjectWithMinDate(minDate)
+
     language = utl.getLanguageObject()
     search = {
         server: dataModule.standardServerSearchObj()
@@ -186,7 +156,6 @@ renderTable = (dataPromise) ->
     autoWidth = false
     
     gridJSOptions = { columns, server, language, search, pagination, sort, fixedHeader, resizable }
-    #endregion
 
     if tableObj?
         tableObj = null
@@ -200,7 +169,7 @@ renderTable = (dataPromise) ->
         await tableObj.render(gridjsFrame)
     
     gridJSSearchInput = document.getElementsByClassName("gridjs-search-input")[0]
-    if gridJSSearchInput? 
+    if gridJSSearchInput?
         gridJSSearchInput.addEventListener("keydown", gridJSSearchInputKeyDowned)
         # gridJSSearchInput.focus()
     return

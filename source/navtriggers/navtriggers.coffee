@@ -9,18 +9,14 @@ import * as nav from "navhandler"
 
 ############################################################
 import * as S from "./statemodule.js"
-import {setSustSolLogo} from "./radiologistdatamodule.js"
-# import {setQRCode} from "./radiologistdatamodule.js"
+# import * as cube from "./cubemodule.js"
 
 ############################################################
 ## Navigation Action Triggers
 
 ############################################################
 export home = ->
-    navState = S.get("navState")
-    if navState.depth == 0 then setSustSolLogo()
-    # if navState.depth == 0 then setQRCode()
-    else return nav.toRoot(true)
+    return nav.toRoot(true)
     
 ############################################################
 export menu = (menuOn) ->

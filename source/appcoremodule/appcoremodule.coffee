@@ -21,8 +21,6 @@ import * as account from "./accountmodule.js"
 import * as menuModule from "./menumodule.js"
 
 ############################################################
-import * as verificationModal from "./codeverificationmodal.js"
-import * as invalidcodeModal from "./invalidcodemodal.js"
 import * as logoutModal from "./logoutmodal.js"
 
 ############################################################

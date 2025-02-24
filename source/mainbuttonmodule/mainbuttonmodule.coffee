@@ -7,7 +7,6 @@ import { createLogFunctions } from "thingy-debug"
 ############################################################
 import * as triggers from "./navtriggers.js"
 import * as credentialsFrame from "./credentialsframemodule.js"
-import * as requestcodeFrame from "./requestcodeframemodule.js"
 import * as uiState from "./uistatemodule.js"
 
 ############################################################
@@ -42,8 +41,6 @@ export acceptButtonClicked = (evnt) ->
     switch currentBase
         when "add-account", "update-account" 
             await credentialsFrame.acceptInput()
-        when "request-code", "request-update-code" 
-            await requestcodeFrame.requestCode()
     
     acceptButton.classList.remove("disabled")
     # return false

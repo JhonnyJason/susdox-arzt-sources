@@ -7,7 +7,6 @@ import { createLogFunctions } from "thingy-debug"
 ############################################################
 import * as cubeModule from "./cubemodule.js"
 import * as credentialsFrame from "./credentialsframemodule.js"
-import * as requestFrame from "./requestcodeframemodule.js"
 import * as table from "./overviewtablemodule.js"
 
 ############################################################
@@ -17,7 +16,6 @@ export setToDefaultState = ->
     table.unsetPatient()
 
     cubeModule.reset()
-    requestFrame.reset()
     credentialsFrame.reset()
 
     content.classList.remove("preload")
@@ -52,7 +50,6 @@ export setToLoggingInState = ->
     cubeModule.reset()
     cubeModule.setPreloader()
     credentialsFrame.reset()
-    requestFrame.reset()
 
     content.classList.remove("preload")
     content.classList.remove("add-account")
@@ -69,7 +66,6 @@ export setToMainTableState = ->
 
     cubeModule.reset()
     credentialsFrame.reset()
-    requestFrame.reset()
 
     content.classList.remove("preload")
     content.classList.remove("add-account")
@@ -86,7 +82,6 @@ export setToPatientTableState = (ctx) ->
     
     cubeModule.reset()
     credentialsFrame.reset()
-    requestFrame.reset()
 
     content.classList.remove("preload")
     content.classList.remove("add-account")

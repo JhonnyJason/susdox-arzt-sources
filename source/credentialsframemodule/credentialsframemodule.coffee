@@ -8,7 +8,6 @@ import { createLogFunctions } from "thingy-debug"
 import * as nav from "navhandler"
 
 ############################################################
-import * as requestCodeFrame from "./requestcodeframemodule.js"
 import * as account from "./accountmodule.js"
 import * as utl from "./utilmodule.js"
 import * as sci from "./scimodule.js"
@@ -16,9 +15,6 @@ import { acceptButtonClicked } from "./mainbuttonmodule.js"
 
 ############################################################
 import { NetworkError, InputError, AuthenticationError } from "./errormodule.js"
-
-############################################################
-import { ScrollRollDatepicker } from "./scrollrolldatepickermodule.js"
 
 ############################################################
 #region DOM Cache
@@ -182,13 +178,6 @@ export prepareForAddCode = ->
     resetAllErrorFeedback()
     accountToUpdate = null
     loginUsernameInput.value = ""
-
-    # TODO change to username value
-    # dateOfBirth = requestCodeFrame.getBirthdayValue()
-    # log "dateOfBirth: #{dateOfBirth}"
-    
-    # if dateOfBirth? and dateOfBirth then datePicker.setValue(dateOfBirth)
-
     loginPasswordInput.value = ""
     return
 

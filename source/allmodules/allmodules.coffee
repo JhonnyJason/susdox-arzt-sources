@@ -14,9 +14,7 @@ import * as mainbuttonmodule from "./mainbuttonmodule.js"
 import * as menumodule from "./menumodule.js"
 import * as overviewtablemodule from "./overviewtablemodule.js"
 import * as pwainstallmodule from "./pwainstallmodule.js"
-import * as requestcodeframemodule from "./requestcodeframemodule.js"
 import * as scimodule from "./scimodule.js"
-import * as scrollrolldatepickermodule from "./scrollrolldatepickermodule.js"
 import * as statemodule from "./statemodule.js"
 import * as tableheadermodule from "./tableheadermodule.js"
 import * as uistatemodule from "./uistatemodule.js"
@@ -40,9 +38,7 @@ Modules = {
     menumodule,
     overviewtablemodule,
     pwainstallmodule,
-    requestcodeframemodule,
     scimodule,
-    scrollrolldatepickermodule,
     statemodule,
     tableheadermodule,
     uistatemodule,

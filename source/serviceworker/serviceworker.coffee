@@ -83,6 +83,7 @@ activateEventHandler = (evnt) ->
 fetchEventHandler = (evnt) -> 
     # ## prod-c log "fetchEventHandler"
     # log evnt.request.url
+    return unless evnt.request.method == "GET"
     evnt.respondWith(cacheThenNetwork(evnt.request))
     return
 

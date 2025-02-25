@@ -7,7 +7,7 @@ export codeRequestURL = "https://www.bilder-befunde.at/pwa-api/api/v1/request-co
 
 export desktopLoginURL = "https://www.bilder-befunde.at/pwa-api/api/v1/desktop-login/"
 
-export appVersion = "v0.0.18"
+export appVersion = "v0.0.19"
 
 
 # TODO integrate

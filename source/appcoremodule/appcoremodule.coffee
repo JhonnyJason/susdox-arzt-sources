@@ -30,6 +30,7 @@ import * as sci from "./scimodule.js"
 import { AuthenticationError } from "./errormodule.js"
 import { appVersion } from "./configmodule.js"
 import { env } from "./environmentmodule.js"
+import { logoutRequest } from "./scimodule.js"
 
 #endregion
 
@@ -171,48 +172,13 @@ prepareAccount = ->
 
     try
         await account.assertValidLogin()
-        ## here the credentials are available and valid
-        
-        if env.isDesktop 
-            redirected = true
-            return desktopRedirect()
-
         setAppState("main-table", "none")
         return
+        
     catch err then log err # here credentials were invalid
     accountAvailable = false
     return
     
-
-############################################################
-desktopRedirect = ->
-    log "desktopRedirect"
-    try
-
-        creds = account.getUserCredentials()
-        olog { creds }
-        loginBody = await utl.loginRequestBody(creds)
-        olog { loginBody }
-        response = await sci.desktopLogin(loginBody)
-        olog { response }
-
-        if response.redirect_url?
-            window.location.replace(response.redirect_url)
-            # window.location.assign(response.redirect_url)
-            # window.location.open(response.redirect_url)
-            throw new Error("")
-        else throw new Error("No redirect_url in response!")
-    
-    catch err then log err
-    return
-
-    # redirectURL = "https://www.bilder-befunde.at/webview/index.php?menuid=2&autologin=pwa&input_dob=#{dateOfBirth}&input_code=#{code}"
-    
-    # log redirectURL
-    # ## TODO reactivate for testing:
-    # return window.location.replace(redirectURL);
-    # # return
-
 ############################################################
 updateUIData = ->
     log "updateUIData"
@@ -285,6 +251,7 @@ confirmLogoutProcess = ->
     try
         await logoutModal.userConfirmation()
         account.deleteAccount()
+        await logoutRequest()
     catch err then log err
     finally nav.toRoot(true)
     return

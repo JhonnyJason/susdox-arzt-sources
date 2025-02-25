@@ -211,50 +211,6 @@ export saveLabelEdit = (label, index) ->
     return
 
 ############################################################
-export updateData = (index) ->
-    log "updateData"
-    if noAccount then throw new Error("No User Account Available!")
-    if !index? then index = activeAccount
-    if index >= allAccounts.length then throw new Error("No account by index: #{index}")
-
-    accountObj = allAccounts[index]
-
-    try
-        oldImages = accountObj.radiologistImages
-        oldAddresses = accountObj.radiologistAddresses
-        credentials = accountObj.userCredentials
-
-        allImages = new Set(oldImages)
-        allAddresses = new Set(oldAddresses)
-        
-        credentials = await utl.hashedCredentials(credentials)
-        newData = await sci.getRadiologistsData(credentials) 
-        accountValidity[index] = true
-
-        olog { newData }
-        
-        for key,value of newData
-            olog { key, value }
-            allImages.add(value[0])
-            allAddresses.add(value[1])
-
-        olog { allImages, allAddresses }
-
-        accountObj.radiologistImages = [...allImages]
-        accountObj.radiologistAddresses = [...allAddresses]
-        S.save("allAccounts")
-
-    catch err
-        log "Error on updateData: #{err.message}"
-        # only on auth error, we know it is invalid
-        # for any non-auth error we act as if it was valid
-        if err instanceof AuthenticationError 
-            accountValidity[index] = false
-        else 
-            accountValidity[index] = true
-
-    return
-
 export assertValidLogin = (index) ->
     if noAccount then throw new Error("No User Account Available!")
     if !index? then index = activeAccount

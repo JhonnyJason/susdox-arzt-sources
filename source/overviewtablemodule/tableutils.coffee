@@ -311,7 +311,7 @@ radiologistHeadObj = {
 }
 
 sendingDateHeadObj = {
-    name: "Zustellungsdatum"
+    name: "Zust.-Datum"
     id: "createdAt"
     formatter: sendingDateFormatter
     sort: false

@@ -137,7 +137,7 @@ export loginRequest = (body) ->
     headers = { 'Content-Type': 'application/json' }
     body = JSON.stringify(body)
     
-    fetchOptions = { method, mode, headers, body }
+    fetchOptions = { method, mode, credentials, headers, body }
 
     # log "loginRequest"
     # olog body

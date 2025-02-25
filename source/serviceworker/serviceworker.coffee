@@ -11,11 +11,7 @@ fontCacheName = "ARZT-PWA_fonts"
 ############################################################
 # This is for the case we need to delete - usually we reuse QRcch_app and update "/" on a new install without deleting everything
 # We need to delete the cache if there is an outdated and unused file which would stay in the cache otherwise
-cachesToDelete = [
-    "ARZT-PWAmain"
-    "ARZT-PWAimages"
-    "ARZT-PWAfonts"
-]
+cachesToDelete = []
 
 ############################################################
 fixedAppFiles = [
@@ -29,20 +25,12 @@ fixedAppFiles = [
 ]
 
 optionalAppFiles = [
-    "/android-chrome-96x96.png"
-    "/android-chrome-192x192.png"
-    "/android-chrome-512x512.png"
     "/apple-touch-icon.png"
-    "/browserconfig.xml"
+    "/favicon.svg"
     "/favicon.ico"
-    "/favicon-16x16.png"
-    "/favicon-32x32.png"
-    "/mstile-70x70.png"
-    "/mstile-144x144.png"
-    "/mstile-150x150.png"
-    "/mstile-310x150.png"
-    "/mstile-310x310.png"
-    "/safari-pinned-tab.svg"
+    "/favicon-96x96.png"
+    "/web-app-manifest-192x192.png"
+    "/web-app-manifest-512x512.png"
 ]
 
 ############################################################

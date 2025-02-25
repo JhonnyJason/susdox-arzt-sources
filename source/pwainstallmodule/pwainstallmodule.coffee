@@ -67,7 +67,6 @@ showDebugInfo = ->
 onBeforeInstallPrompt = (e) ->
     log "beforeInstallPrompt"
     e.preventDefault()
-    # return
 
     howToToShow = null
     deferredInstallPrompt = e

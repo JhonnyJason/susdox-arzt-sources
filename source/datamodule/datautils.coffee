@@ -178,7 +178,7 @@ groudByStudyId = (data) ->
         obj = {}
         for shareId,share of entry
             obj.isNew = mergeIsNew(obj, share)
-            # obj.studyDate = mergeStudyDate(obj, share)
+            obj.studyDate = mergeStudyDate(obj, share)
             obj.patientId = mergePatientId(obj, share)
             obj.patientFullName = mergePatientFullname(obj, share)
             # obj.patientSsn = mergePatientSsn(obj, share)
@@ -220,7 +220,7 @@ groudByPatientId = (data) ->
         obj = {}
         for shareId,share of entry
             obj.isNew = mergeIsNew(obj, share)
-            # obj.studyDate = mergeStudyDate(obj, share)
+            obj.studyDate = mergeStudyDate(obj, share)
             obj.studyId = mergeStudyId(obj, share)
             obj.patientFullName = mergePatientFullname(obj, share)
             # obj.patientSsn = mergePatientSsn(obj, share)

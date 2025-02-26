@@ -337,7 +337,7 @@ export getStandardColumnObjects = (state) ->
     return [patientIdHeadObj, isNewHeadObj, nameHeadObj, birthdayHeadObj]
 
 export getPatientsColumnObjects = (state) ->
-    return [studyIdHeadObj, isNewHeadObj, documentsHeadObj, sendingDateHeadObj]
+    return [studyIdHeadObj, isNewHeadObj, documentsHeadObj, screeningDateHeadObj]
 
 # export getExtendedPatientsColumnObjects = (state) ->
 #     return [studyIdHeadObj, isNewHeadObj, befundeHeadObj, bilderHeadObj, screeningDateHeadObj, radiologistHeadObj, sharedToHeadObj, forwardHeadObj]

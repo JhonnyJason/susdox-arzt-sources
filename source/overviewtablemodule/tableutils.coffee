@@ -148,7 +148,7 @@ documentsFormatter = (content , row) ->
         #     type: params[3] == "bild" || "befund"
         # }
         if params[2] == "1"
-            innerHTML += "<li class='#{params[3]}'><b><a href='#{params[1]}'> #{params[0]}</a></b></li>"
+            innerHTML += "<li class='#{params[3]}'><b><a onclick='window.open(#{params[1]})'> #{params[0]}</a></b></li>"
         else
             innerHTML += "<li class='#{params[3]}'><a href='#{params[1]}'> #{params[0]}</a></li>"
 

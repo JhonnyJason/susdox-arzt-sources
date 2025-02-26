@@ -11,7 +11,7 @@ fontCacheName = "ARZT-PWA_fonts"
 ############################################################
 # This is for the case we need to delete - usually we reuse QRcch_app and update "/" on a new install without deleting everything
 # We need to delete the cache if there is an outdated and unused file which would stay in the cache otherwise
-cachesToDelete = []
+cachesToDelete = [appCacheName, fontCacheName]
 
 ############################################################
 fixedAppFiles = [
@@ -35,7 +35,6 @@ optionalAppFiles = [
 
 ############################################################
 fontEndings = /.(o|t)tf$|.woff2?$/ # for otf,ttf,woff and woff2
-imageEndings = /.png$|.jpg$|.jpeg$|.webp$|.gif$/
 
 ############################################################
 urlMatchOptions = {
@@ -133,7 +132,6 @@ handleCacheMiss = (request) ->
     url = new URL(request.url)
     if isOptionalAppFile(url.pathname) then return handleAppFileMiss(request)
     if fontEndings.test(url.pathname) then return handleFontMiss(request)
-    if imageEndings.test(url.pathname) then return handleImageMiss(request)
     return fetch(request)
     
 ############################################################
@@ -142,13 +140,6 @@ handleAppFileMiss = (request) ->
     # log request.url
     try return await fetchAndCache(request, appCacheName)
     catch err then ## prod-c log "Error on handleAppFileMiss: #{err.message}"
-    return
-
-handleImageMiss = (request) ->
-    # ## prod-c log "handleImageMiss"
-    # log request.url
-    try return await fetchAndCache(request, imageCacheName)
-    catch err then ## prod-c log "Error on handleImageMiss: #{err.message}"
     return
 
 handleFontMiss = (request) ->

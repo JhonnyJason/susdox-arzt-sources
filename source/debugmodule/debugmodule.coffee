@@ -3,8 +3,8 @@ import { addModulesToDebug } from "thingy-debug"
 ############################################################
 export modulesToDebug = {
 
-    accountmodule: true
-    appcoremodule: true
+    # accountmodule: true
+    # appcoremodule: true
     # pwainstallmodule: true
     # centerlinkmodule: true
     # configmodule: true

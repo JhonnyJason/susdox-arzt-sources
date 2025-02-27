@@ -23,9 +23,6 @@ menu-icon-size = 25px
         @extends .click-button
     .menu-entry:hover
         background-color alpha(cd-darkblue, 0.2)
-    .menu-entry.active-user
-        background-color cd-turquoise
-        color white
         
     .menu-icon
         width: menu-icon-size
@@ -39,33 +36,27 @@ menu-icon-size = 25px
         position relative
         top 1px
 
+    #menu-add-account
+        display none 
+
+    #menu-user-name
+        // border-bottom solid 1px alpha(cd-darkblue, 0.1)
+        background-color cd-turquoise
+        color white
+
 
 //==========================================================
-#menu-add-account
-    pointer-events: none
-    opacity 0.6
-
 #menu-more-info
     pointer-events: none
     opacity 0.6
 
-#all-users
-    border-top solid 1px alpha(cd-darkblue, 0.1)
-    border-bottom solid 1px alpha(cd-darkblue, 0.1)
 
-
-.no-user
+#menu.no-user
     #menu-add-account
-        pointer-events: all
-        opacity 1
+        display flex
 
-    #all-users
-        border-bottom none
-        padding 0
-
-    // #menu-show-qr
-    //     pointer-events: none
-    //     opacity 0.6
+    #menu-user-name
+        display none
 
     #menu-logout
         pointer-events: none

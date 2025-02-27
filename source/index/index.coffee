@@ -5,11 +5,15 @@ domconnect.initialize()
 import { appLoaded } from "navhandler"
 global.allModules = Modules
 
-############################################################
-if navigator? and navigator.serviceWorker? then navigator.serviceWorker.register("serviceworker.js")
 
 ############################################################
-appStartup = -> 
+if location.href.startsWith("https://localhost")
+    # for local testing...
+    Modules.utilmodule.unregisterAllServiceWorkers()
+else Modules.utilmodule.registerServiceWorker()
+
+############################################################
+appStartup = ->
     # footer.addEventListener("click", footerClicked)
     appLoaded()
     return

@@ -11,14 +11,11 @@ nav#menu.no-user
         a.menu-entry#menu-add-account
             .menu-icon: svg: use(href="#svg-login-icon")
             .menu-label=content.menuLoginLabel
-    .menu-group 
-        //- a.menu-entry#menu-show-qr
-        //-     .menu-icon: svg: use(href="#svg-qr-icon")
-        //-     .menu-label=content.menuShowQRLabel
-        //- a.menu-entry#menu-hide-qr
-        //-     .menu-icon: svg: use(href="#svg-qr-icon")
-        //-     .menu-label=content.menuHideQRLabel
+        a.menu-entry#menu-user-name
+            .menu-icon: svg: use(href="#svg-user-icon")
+            .menu-label User Name
 
+    .menu-group 
         a.menu-entry#menu-more-info(target="_blank" href="https://pwa.bilder-befunde.at/info")
             .menu-icon: svg: use(href="#svg-info-icon")
             .menu-label=content.menuMoreInfoLabel

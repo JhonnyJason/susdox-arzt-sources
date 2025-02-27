@@ -176,14 +176,18 @@ prepareAccount = ->
         return
         
     catch err then log err # here credentials were invalid
+    #delete invalid account then    
+    account.deleteAccount()
     accountAvailable = false
+    try logoutRequest()
+    catch err then log err
     return
     
 ############################################################
 updateUIData = ->
     log "updateUIData"
     # update data in the UIs
-    menuModule.updateAllUsers()
+    menuModule.updateUser()
     return
 
 ############################################################
@@ -234,18 +238,6 @@ onServiceWorkerSwitch = ->
 
 ############################################################
 #region User Interaction Processes
-
-urlCodeDetectedProcess = ->
-    log "urlCodeDetectedProcess"
-    log "urlCode is: #{urlCode}"
-    try
-        credentials = await verificationModal.pickUpConfirmedCredentials(urlCode)
-        await account.addValidAccount(credentials)
-    catch err then log err
-    finally nav.toRoot(true)
-    return
-
-############################################################
 confirmLogoutProcess = ->
     log "confirmLogoutProcess"
     try

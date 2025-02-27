@@ -97,7 +97,6 @@ extractCredentials = ->
         loginBody = await utl.loginRequestBody(credentials)
         response = await sci.loginRequest(loginBody)
         if response? and response.name? then credentials.name = response.name
-        alert("Received Name: #{credentials.name}")
     catch err then throw err
     
     return credentials
@@ -114,16 +113,11 @@ export acceptInput = ->
     log "acceptInput"
     try
         resetAllErrorFeedback()
-        credentials = await extractCredentials() # also checks if they are valid
-        
-        if accountToUpdate? 
-            # we just updated an account - update credentials and save
-            accountToUpdate.userCredentials = credentials
-            account.saveAllAccounts()
 
-        else account.addValidAccount(credentials)
-            
-        # update or adding an account succeeded - so back to root :-)
+        # also sends Login Request
+        credentials = await extractCredentials() 
+        
+        account.setCredentials(credentials)    
         await nav.toRoot(true) 
     catch err
         log err

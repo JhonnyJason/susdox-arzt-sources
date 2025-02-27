@@ -41,7 +41,7 @@ deDE = {
     loading: 'Wird geladen...'
     noRecordsFound: 'Es wurden keine Untersuchungen gefunden!'
     # error: 'Beim Abrufen der Daten ist ein Fehler aufgetreten'
-    error: " "
+    error: "Ein Netzwerkproblem ist aufgetreten!"
 }
 
 # deNoRecordsFoundMindateTemplate = "Es wurden keine Untersuchungen ab {{{minDate}}} gefunden!"
@@ -147,6 +147,7 @@ documentsFormatter = (content , row) ->
         #     isNew: params[2] == "1"
         #     type: params[3] == "bild" || "befund"
         # }
+        params[1] = "#{params[1]}&app=pwa_medic"
         if params[2] == "1"
             innerHTML += "<li class='#{params[3]}'><b><a onclick='window.open(\"#{params[1]}\")'> #{params[0]}</a></b></li>"
         else

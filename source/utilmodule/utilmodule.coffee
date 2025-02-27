@@ -265,3 +265,17 @@ export copyToClipboard = (text) ->
     document.body.removeChild(copyElement)
     if msgBox? then msgBox.info("Copied: "+text)
     return
+
+
+############################################################
+export registerServiceWorker = ->
+    if navigator? and navigator.serviceWorker?
+        navigator.serviceWorker.register("serviceworker.js")
+    return
+
+############################################################
+export unregisterAllServiceWorkers = ->
+    if navigator? and navigator.serviceWorker? 
+        regs = await navigator.serviceWorker.getRegistrations()
+        reg.unregister() for reg in regs
+    return

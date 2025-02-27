@@ -96,6 +96,8 @@ extractCredentials = ->
     try
         loginBody = await utl.loginRequestBody(credentials)
         response = await sci.loginRequest(loginBody)
+        if response? and response.name? then credentials.name = response.name
+        alert("Received Name: #{credentials.name}")
     catch err then throw err
     
     return credentials

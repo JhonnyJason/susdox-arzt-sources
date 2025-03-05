@@ -88,7 +88,7 @@ messageEventHandler = (evnt) ->
     ## prod-c log "I am version #{appVersion}!"
 
     # Commands to be executed
-    if evnt.data == "v?"
+    if evnt.data == "v?" or evnt.data == "tellMeVersion"
         # get all available windows and tell them the Version
         clients = await self.clients.matchAll({includeUncontrolled: true})
         message = {version: appVersion}

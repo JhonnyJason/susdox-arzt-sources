@@ -11,7 +11,7 @@ fontCacheName = "ARZT-PWA_fonts"
 ############################################################
 # This is for the case we need to delete - usually we reuse QRcch_app and update "/" on a new install without deleting everything
 # We need to delete the cache if there is an outdated and unused file which would stay in the cache otherwise
-cachesToDelete = [appCacheName, fontCacheName]
+cachesToDelete = [ ]
 
 ############################################################
 fixedAppFiles = [
@@ -88,8 +88,8 @@ messageEventHandler = (evnt) ->
     ## prod-c log "I am version #{appVersion}!"
 
     # Commands to be executed
-    if evnt.data == "tellMeVersion"
-        # get all available Windoes and tell them the new Version is here :-)
+    if evnt.data == "v?"
+        # get all available windows and tell them the Version
         clients = await self.clients.matchAll({includeUncontrolled: true})
         message = {version: appVersion}
         client.postMessage(message) for client in clients
@@ -120,8 +120,9 @@ cacheThenNetwork = (request) ->
 ############################################################
 deleteCaches = (cacheNames) ->
     # ## prod-c log "deleteCaches"
-    promise = caches.delete(name) for name in cacheNames
-    try return await Promise.all(promises)
+    prms = []
+    prms.push(caches.delete(name)) for name in cacheNames
+    try return await Promise.all(prms)
     catch err then ## prod-c log "Error in deleteCaches: #{err.message}"
     return  
     

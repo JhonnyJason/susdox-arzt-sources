@@ -230,8 +230,8 @@ onServiceWorkerMessage = (evnt) ->
 
 onServiceWorkerSwitch = ->
     # console.log("  !  onServiceWorkerSwitch")
-    serviceWorker.controller.postMessage("Hello I am version: #{appVersion}!")
-    serviceWorker.controller.postMessage("tellMeVersion")
+    # serviceWorker.controller.postMessage("Hello I am version: #{appVersion}!")
+    serviceWorker.controller.postMessage("v?")
     return
 
 #endregion

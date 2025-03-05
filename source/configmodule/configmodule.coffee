@@ -7,4 +7,4 @@ export requestSharesURL = "https://www.bilder-befunde.at/pwa-api/api/v1/cockpit/
 export dataLoadPageSize = 1000
 export searchDebounceMS = 1100
 
-export appVersion = "v0.1.0"
+export appVersion = "v0.1.0a"

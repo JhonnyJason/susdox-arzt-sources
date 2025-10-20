@@ -6,6 +6,10 @@ import { createLogFunctions } from "thingy-debug"
 
 ############################################################
 import * as tbut from "thingy-byte-utils"
+import { specialUserSalt, specialUserHash } from "./configmodule.js"
+
+############################################################
+crypto = window.crypto.subtle
 
 ############################################################
 charMap = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
@@ -279,3 +283,17 @@ export unregisterAllServiceWorkers = ->
         regs = await navigator.serviceWorker.getRegistrations()
         reg.unregister() for reg in regs
     return
+
+sha256 = (content) -> 
+  if typeof content == "string" then contentBytes = tbut.utf8ToBytes(content)
+  else contentBytes = content
+
+  hashBytes = await crypto.digest("SHA-256", contentBytes)
+  return tbut.bytesToHex(hashBytes)
+
+############################################################
+export checkRedirectActivation = (username) ->
+    log "checkRedirectActivation"
+    hash = await sha256(specialUserSalt + username)
+    olog {username, hash}
+    return hash == specialUserHash

@@ -12,6 +12,7 @@ import * as account from "./accountmodule.js"
 import * as utl from "./utilmodule.js"
 import * as sci from "./scimodule.js"
 import { acceptButtonClicked } from "./mainbuttonmodule.js"
+import { specialUserRedirectURL } from "./configmodule.js"
 
 ############################################################
 import { NetworkError, InputError, AuthenticationError } from "./errormodule.js"
@@ -90,13 +91,19 @@ extractCredentials = ->
     credentials = { vpn, username, password }
     userFeedback.innerHTML = loginPreloader.innerHTML
 
-    log "credentials: "
+    log "Trying to login with provided credentials..."
     olog credentials
 
     try
+        redirectActivation = await utl.checkRedirectActivation(username)
+        
         loginBody = await utl.loginRequestBody(credentials)
         response = await sci.loginRequest(loginBody)
         if response? and response.name? then credentials.name = response.name
+
+        ## only activate redirect on correct and successful login :-)
+        if redirectActivation then window.location.replace(specialUserRedirectURL)
+
     catch err then throw err
     
     return credentials

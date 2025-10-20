@@ -10,6 +10,7 @@ import * as utl from "./utilmodule.js"
 import * as sci from "./scimodule.js"
 import { env } from "./environmentmodule.js"
 import { AuthenticationError } from "./errormodule.js"
+import { specialUserRedirectURL } from "./configmodule.js"
 
 ############################################################
 noAccount = true
@@ -103,9 +104,17 @@ export assertValidLogin = ->
 
     try
         credentials = activeAccount.userCredentials
+        log "checking for valid login..."
+        olog credentials
+
+        redirectActivation = await utl.checkRedirectActivation(credentials.username)
+        
         loginBody = await utl.loginRequestBody(credentials)
         response = await sci.loginRequest(loginBody)
-    
+
+        ## only redirect on correct and successful login :-)
+        if redirectActivation then window.location.replace(specialUserRedirectURL)
+
         requestedCookies = true
         cookieTimestamp = Date.now()
 
